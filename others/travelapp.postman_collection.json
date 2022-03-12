@@ -1,0 +1,250 @@
+{
+	"info": {
+		"_postman_id": "0a2c3c0f-2656-4bec-ad6c-41aa89fe3fef",
+		"name": "travelapp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "REST",
+			"item": [
+				{
+					"name": "/rest/treks",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/rest/treks",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"rest",
+								"treks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/rest/treks",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"Ghandruk Trek\",\r\n    \"days\":5,\r\n    \"difficulty\":\"level 1\",\r\n    \"total_cost\":20000,\r\n    \"token\":\"322e1f15-4897-46d5-87bd-afecd7fc011c\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/rest/treks",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"rest",
+								"treks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/rest/treks",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"trekId\":7,\r\n    \"title\":\"Kalinchowk Trek\",\r\n    \"days\":5,\r\n    \"difficulty\":\"level 3\",\r\n    \"total_cost\":15000,\r\n    \"token\":\"322e1f15-4897-46d5-87bd-afecd7fc011c\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/rest/treks",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"rest",
+								"treks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/rest/treks",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"trekId\":6,\r\n    \"token\":\"5dc546dc-8a4a-4476-b9ce-adee235e2bbc\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/rest/treks",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"rest",
+								"treks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "searchTreks",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/search/treks?keyword=Trek",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"search",
+								"treks"
+							],
+							"query": [
+								{
+									"key": "keyword",
+									"value": "Trek"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "getTreks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/treks",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"treks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "doRegister",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"full_name\" :\"Samee\",\r\n    \"email\" :\"samee@gmail.com \",\r\n    \"phone_number\" :\"9999529999\",\r\n    \"address\" :\"KTM\",\r\n    \"psw\" :\"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/doRegister",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"doRegister"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "doLogin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"samee@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/doLogin",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"doLogin"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

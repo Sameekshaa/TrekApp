@@ -1,0 +1,437 @@
+<style>
+  input,
+  textarea,
+  button {
+    height: 25px;
+    margin: 0;
+    padding: 10px;
+    font-family: Raleway, sans-serif;
+    font-weight: normal;
+    font-size: 12pt;
+    outline: none;
+    border-radius: 0;
+    background: none;
+    border: 1px solid #282b33;
+  }
+
+  button,
+  select {
+    height: 45px;
+    padding: 0 15px;
+    cursor: pointer;
+  }
+
+  button {
+    background: none;
+    border: 1px solid black;
+    margin: 25px 0;
+  }
+
+  button:hover {
+    background-color: #282b33;
+    color: white;
+  }
+
+  .tools {
+    overflow: auto;
+    zoom: 1;
+  }
+
+  .search-area {
+    float: left;
+    width: 60%;
+  }
+
+  .settings {
+    display: none;
+    float: right;
+    width: 40%;
+    text-align: right;
+  }
+
+  #view {
+    display: none;
+    width: auto;
+    height: 47px;
+  }
+
+  #searchbutton {
+    width: 60px;
+    height: 47px;
+  }
+
+  input#search {
+    width: 30%;
+    width: calc(100% - 90px);
+    padding: 10px;
+    border: 1px solid #282b33;
+  }
+
+  @media screen and (max-width: 400px) {
+    .search-area {
+      width: 100%;
+    }
+  }
+
+  .products {
+    width: 100%;
+    font-family: Raleway;
+  }
+
+  .product {
+    display: inline-block;
+    width: calc(24% - 13px);
+    margin: 10px 10px 30px 10px;
+    vertical-align: top;
+  }
+
+  .product img {
+    display: block;
+    margin: 0 auto;
+    width: auto;
+    height: 200px;
+    max-width: calc(100% - 20px);
+
+    box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.8);
+    border-radius: 2px;
+  }
+
+  .product-content {
+    text-align: center;
+  }
+
+  .product h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 10px 0 0 0;
+  }
+
+  .product h3 small {
+    display: block;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: italic;
+    margin: 7px 0 0 0;
+  }
+
+  .product .product-text {
+    margin: 7px 0 0 0;
+    color: #777;
+  }
+
+  .product .price {
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .product .genre {
+    font-size: 14px;
+  }
+
+  @media screen and (max-width: 1150px) {
+    .product {
+      width: calc(33% - 23px);
+    }
+  }
+
+  @media screen and (max-width: 700px) {
+    .product {
+      width: calc(50% - 43px);
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    .product {
+      width: 100%;
+    }
+  }
+
+  /* TABLE VIEW */
+  @media screen and (min-width: 401px) {
+    .settings {
+      display: block;
+    }
+
+    #view {
+      display: inline;
+    }
+
+    .products-table .product {
+      display: block;
+      width: auto;
+      margin: 10px 10px 30px 10px;
+    }
+
+    .products-table .product .product-img {
+      display: inline-block;
+      margin: 0;
+      width: 120px;
+      height: 120px;
+      vertical-align: middle;
+    }
+
+    .products-table .product img {
+      width: auto;
+      height: 120px;
+      max-width: 120px;
+    }
+
+    .products-table .product-content {
+      text-align: left;
+      display: inline-block;
+      margin-left: 20px;
+      vertical-align: middle;
+      width: calc(100% - 145px);
+    }
+
+    .products-table .product h3 {
+      margin: 0;
+    }
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  /* Style the body */
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+  }
+
+  /* Header/logo Title */
+  .header {
+    padding: 80px;
+    text-align: center;
+    background: #1abc9c;
+    color: white;
+  }
+
+  /* Increase the font size of the heading */
+  .header h1 {
+    font-size: 40px;
+  }
+
+  /* Style the top navigation bar */
+  .navbar {
+    overflow: hidden;
+    background-color: #333;
+  }
+
+  /* Style the navigation bar links */
+  .navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+  }
+
+  /* Right-aligned link */
+  .navbar a.right {
+    float: right;
+  }
+
+  /* Change color on hover */
+  .navbar a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+  /* Column container */
+  .row {
+    display: -ms-flexbox;
+    /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap;
+    /* IE10 */
+    flex-wrap: wrap;
+  }
+
+  /* Create two unequal columns that sits next to each other */
+  /* Sidebar/left column */
+  .side {
+    -ms-flex: 30%;
+    /* IE10 */
+    flex: 30%;
+    background-color: #f1f1f1;
+    padding: 20px;
+  }
+
+  /* Main column */
+  .main {
+    -ms-flex: 70%;
+    /* IE10 */
+    flex: 70%;
+    background-color: white;
+    padding: 20px;
+  }
+
+  /* Fake image, just for this example */
+  .fakeimg {
+    background-color: #aaa;
+    width: 100%;
+    padding: 20px;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 20px;
+    text-align: center;
+    background: #ddd;
+  }
+
+  /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 700px) {
+    .row {
+      flex-direction: column;
+    }
+  }
+
+  /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+  @media screen and (max-width: 400px) {
+    .navbar a {
+      float: none;
+      width: 100%;
+    }
+  }
+</style>
+
+<div>
+  <div class="header">
+    <h1>Travel App</h1>
+    <p>Your Guide to Treks</p>
+  </div>
+
+  <div class="navbar">
+    <a href="/">Home</a>
+    <a href="/treks">Trek Destinations</a>
+    <a href="#">Search</a>
+    {% if result['logged_in_user'] %}
+    <a href="/addTrek">Add Trek Destination</a>
+    <a href="/addIternary">Add Iternary</a>
+    <a href="/logout" class="right">Logout</a>
+    <a href="#" class="right">Welcome {{ result['logged_in_user'] }}</a>
+    {% else %}
+    <a href="/register" class="right">Register</a>
+    <a href="/login" class="right">Login</a>
+    {% endif %}
+  </div>
+</div>
+<link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700,800" rel="stylesheet" type="text/css" />
+
+<div class="tools">
+  <div class="search-area">
+    <input type="text" id="search" placeholder="Search" />
+    <!-- <button id="searchbutton">Go</button> -->
+
+    <button name="mytrek" type="submit" id="myTrek">My Treks</button>
+    <button name="alltreks" type="submit" id="allTreks">All Treks</button>
+  </div>
+
+  {% if result["logged_in_user"] %}
+  <div class="settings">
+    <!-- <a href="/addTrek" id="view">Add Trek Destination</a> -->
+  </div>
+  {% endif %}
+</div>
+<div class="products" id="prod_listings">
+  {% for row in result['treks'] %}
+  <div class="product">
+    <div class="product-img">
+      <img src="https://placeimg.com/400/650/nature" />
+    </div>
+    <div class="product-content">
+      <h3>
+        <a href="/trek/{{ row.0 }}"> {{ row.1 }} - {{ row.3 }}</a>
+        <small>Total Days:{{ row.2 }}</small>
+      </h3>
+      <p class="product-text price">Rs. {{ row.4 }}</p>
+      <p class="product-text genre">{{ row.6 }}</p>
+      <p class="product-text genre">Upvotes: {{ row.5 }}</p>
+      {% if (result["userId"]== row.7) %}
+      <a href="/editTrek/{{row.0}}">Edit</a>
+      <a onclick=deleteTrekDialog() href="/doDeleteTrek/{{row.0}}">Delete</a>
+      {% endif %}
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+  function deleteTrekDialog() {
+    var del = confirm("Are you sure you want to delete this record?");
+    return del;
+    // if (del){
+    //    alert ("Trek deleted")
+    //   return true;
+    // }else{
+    //   return false;
+
+    // }
+    // // return del;
+
+
+  }
+
+  $("#view").click(function () {
+    $(".products").toggleClass("products-table");
+  });
+
+
+  $("#myTrek").click(function () {
+
+    $.ajax(
+      "/myTreks/" + "user", // request url
+      {
+        success: function (data, status, xhr) {
+          // success callback function
+
+          $("#prod_listings").html(data);
+        },
+      }
+    );
+  });
+
+  $("#allTreks").click(function () {
+    $.ajax(
+      "/myTreks/" + "all", // request url
+      {
+        success: function (data, status, xhr) {
+          // success callback function
+
+          $("#prod_listings").html(data);
+        },
+      }
+    );
+  });
+
+  //for search to show result after clicking go button
+  // $("#searchButton").click(function () {
+  //   var keyword = $("#search").val();
+  //   if (keyword.length >= 3) {
+  //     $.ajax("/search/treks?keyword=" + keyword, {
+  //       success: function (data, status, xhr) {
+  //         // success callback function
+  //         $("#prod_listings").html(data);
+  //       },
+  //     });
+  //   }
+  // });
+
+  //show result only on typing
+  $("#search").keyup(function () {
+    var keyword = $("#search").val();
+    if (keyword.length >= 3) {
+      $.ajax("/search/treks?keyword=" + keyword, {
+        success: function (data, status, xhr) {
+          // success callback function
+          $("#prod_listings").html(data);
+        },
+      });
+    }
+  });
+</script>
