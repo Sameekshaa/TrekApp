@@ -1,17 +1,18 @@
 # TrekApp
-WSA Project
+ => WSA Project
 
 <!-- travelapi.txt -->
 
 **Features:**
-
-Database => HTTP Methods
-=======		============
-Create			POST
-Retrieve		GET
-Update			PUT
-Delete			DELETE
-
+ 
+| Database | HTTP Methods|
+|:---------|------: 	 |
+| Create   | POST   	 |
+| Retrieve | GET   	 |
+| Update   | PUT    	 |
+| Delete   | DELETE 	 |		
+	
+	
 ### API Endpoints
 
 => **POST** http://127.0.0.1:5000/api/doLogin/
@@ -21,7 +22,7 @@ Delete			DELETE
 - email : required: Email of the registered user
 - psw: required: Password of registered user
 
-eg Payload:
+eg: Payload:
 {
 	"email": "your email",
 	"psw": "your password"
@@ -36,7 +37,7 @@ eg Payload:
 => **POST** http://127.0.0.1:5000/api/doRegister/
 
 => **GET** http://127.0.0.1:5000/api/treks/
-Response: JSON
+- Response: JSON
 
 => POST http://127.0.0.1:5000/api/doAddTrek/
 
@@ -47,20 +48,20 @@ Response: JSON
 - difficulty: required: text: Diffculty level
 - total_cost: required: number: Total Cost
 
-eg Payload:
+eg: Payload:
 {
 	"title": "your email",
 	"days": <days>,
 	"difficulty": "your password",
 	"total_cost": <total_cost>,
-
 }
   
 **Response:**
-
+	
 - message: A message after trek addition is attempted
 
-### BASIC API ENDPOINTS
+	
+### Basic API Endpoints
 
 1. Register => POST - /api/doRegister
 
@@ -77,7 +78,7 @@ eg Payload:
 
 ### REST Framework
 
-Resource: Treks
+**Resource: Treks**
 
 1. All Treks => /api/treks => GET
 2. Add Treks => /api/treks => POST
@@ -85,11 +86,11 @@ Resource: Treks
 4. Delete Treks => /api/treks => DELETE
 
 
-**Resource:** Iternaries
+**Resource: Iternaries**
 
 /rest/iternaries
 
-GET /rest/iternaries
-POST /rest/iternaries
-PUT /rest/iternaries
-DELETE /rest/iternaries
+1. GET /rest/iternaries
+2. POST /rest/iternaries
+3. PUT /rest/iternaries
+4. DELETE /rest/iternaries
